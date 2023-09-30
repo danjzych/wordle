@@ -1,6 +1,6 @@
 import Header from "./Header";
 import WordleApp from "./WordleApp";
-import Footer from ".Footer";
+import Footer from "./Footer";
 
 import "./App.css";
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
       <WordleApp />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
