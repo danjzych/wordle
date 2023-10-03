@@ -6,4 +6,6 @@
   background-color: rgb(242, 248, 248);
   transition-duration: .2s;
   transition-timing-function: ease-in;
+  text-align: center;
+  font-size: 60px;
 }

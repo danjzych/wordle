@@ -1,4 +1,26 @@
 .Header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(66, 96, 96);
+}
+
+.Header-Content {
+  margin: 15px 25px;
+}
+
+.Header-Content i {
+  font-size: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition-duration: .15s;
+  transition-timing-function: ease-out;
+}
+
+.Header-Content i:hover {
+  opacity: .5;
+}
+
+.Header-Logo {
+  text-shadow: 1px 1px 3px  rgb(66, 96, 96);
 }
