@@ -10,4 +10,5 @@ function randomWord() {
 
 module.exports = {
   randomWord,
+  fiveLetterWords,
 };

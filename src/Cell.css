@@ -1,0 +1,9 @@
+.Cell {
+  height: 100px;
+  width: 100px;
+  border-radius: 2px;
+  border: 1px solid rgb(66, 96, 96);
+  background-color: rgb(242, 248, 248);
+  transition-duration: .2s;
+  transition-timing-function: ease-in;
+}

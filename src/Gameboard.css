@@ -1,0 +1,5 @@
+.Gameboard {
+  border-collapse: separate;
+  border-spacing: 5px;
+  margin: auto;
+}

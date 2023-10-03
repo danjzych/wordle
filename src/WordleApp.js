@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import Wordle from "./services/wordle";
+import { initialGameboard } from "./services/wordle";
+import Header from "./Header";
 import Gameboard from "./Gameboard";
+import Keyboard from "./Keyboard";
+import Footer from "./Footer";
 
 function WordleApp() {
+  const [gameboard, setGameboard] = useState(initialGameboard);
+
   return (
     <>
-      <Gameboard />
+      <Header />
+      <Gameboard gameboard={gameboard} />
+      <Keyboard />
+      <Footer />
     </>
   );
 }
