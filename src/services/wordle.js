@@ -5,41 +5,42 @@ const { randomWord, fiveLetterWords } = require("./words");
 /**
  * Class containing the logic for a game of wordle.
  */
-// class Wordle {
-//   constructor() {
-//     this.word = randomWord();
-//     this.guesses = [];
-//     this.isWon = null;
-//   }
+class Wordle {
+  constructor() {
+    this.word = randomWord();
+    this.guesses = [];
+    this.isWon = null;
+    this.gameboard = [
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+    ];
+  }
 
-//   guessWord(guess) {
-//     this.guesses.push(guess);
+  guessWord(guess) {
+    this.guesses.push(guess);
 
-//     if (guess === this.word) {
-//       this.isWon = true;
-//     } else if (guess !== this.word && this.guesses.length === 6) {
-//       this.isWon = false;
-//     } else {
-//       this.handleGuessedLetters(guess);
-//     }
-//   }
+    if (guess === this.word) {
+      this.isWon = true;
+    } else if (guess !== this.word && this.guesses.length === 6) {
+      this.isWon = false;
+    } else {
+      this.handleGuessedLetters(guess);
+    }
+  }
 
-//   /**
-//    * Adds letters from guess to guessed letters along with whether or not they
-//    * were guess in the correct place.
-//    *
-//    * @param {string} guess
-//    */
-//   handleGuessedLetters(guess) {
-//     const letters = guess.split("");
-//   }
-// }
+  /**
+   * Adds letters from guess to guessed letters along with whether or not they
+   * were guess in the correct place.
+   *
+   * @param {string} guess
+   */
+  handleGuessedLetters(guess) {
+    const letters = guess.split("");
+  }
+}
 
-export const initialGameboard = [
-  ["", "", "", "", ""],
-  ["", "", "", "", ""],
-  ["", "", "", "", ""],
-  ["", "", "", "", ""],
-  ["", "", "", "", ""],
-  ["", "", "", "", ""],
-];
+export default Wordle;

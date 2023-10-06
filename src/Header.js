@@ -9,9 +9,9 @@ function Header() {
         <h1>Wordle</h1>
       </div>
       <div className="Header-Content">
-        <i class="bi bi-question-circle"></i>
-        <i class="bi bi-bar-chart-fill"></i>
-        <i class="bi bi-gear-fill"></i>
+        <i className="bi bi-question-circle"></i>
+        <i className="bi bi-bar-chart-fill"></i>
+        <i className="bi bi-gear-fill"></i>
       </div>
     </header>
   );
