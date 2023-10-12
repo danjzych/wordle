@@ -4,8 +4,8 @@ import Cell from "./Cell";
 function Row({ row }) {
   return (
     <tr>
-      {row.map((l, idx) => (
-        <Cell letter={l} key={idx} />
+      {row.map((letter, idx) => (
+        <Cell letter={letter} key={idx} />
       ))}
     </tr>
   );

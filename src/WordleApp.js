@@ -5,24 +5,63 @@ import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
 import Footer from "./Footer";
 
+const VALID_KEYS = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "ENTER",
+  "BACKSPACE",
+];
+
 function WordleApp() {
-  // const [gameboard, setGameboard] = useState(initialGameboard);
   const [wordle, setWordle] = useState(new Wordle());
-  const [guess, setGuess] = useState([]);
+  const [currGuess, setGuess] = useState([]);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeydown);
+  }, []);
 
   function handleKeydown(evt) {
-    console.log(evt.key);
+    const keyInput = evt.key.toUpperCase();
+    if (currGuess.length === 5 || !VALID_KEYS.includes(keyInput)) return;
+
     if (evt.key === "Enter") {
-    } else if (evt.key === "Delete") {
-      setGuess((g) => g.pop());
+      handleGuess(currGuess);
+    } else if (keyInput === "BACKSPACE") {
+      const deleteArr = currGuess.slice(0, -1);
+      setGuess(deleteArr);
     } else {
-      setGuess((g) => [...g, evt.key.toUpperCase()]);
+      setGuess((g) => [...g, keyInput]);
     }
   }
 
-  function handleGuess(guess) {}
+  function handleGuess() {
+    if (currGuess.length === 5) return;
+  }
 
-  window.addEventListener("keydown", handleKeydown);
   return (
     <>
       <Header />
