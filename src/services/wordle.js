@@ -1,7 +1,6 @@
 "use strict";
 
-// const { randomWord } = require("./words.mjs");
-import randomWord from "./words.mjs";
+import { randomWord, possibleWordles } from "./words.mjs";
 const { playableWords } = require("./allPossible");
 
 /**
@@ -9,7 +8,7 @@ const { playableWords } = require("./allPossible");
  */
 class Wordle {
   constructor() {
-    this.word = randomWord();
+    this.word = randomWord().toUpperCase();
     this.guessCount = 0;
     this.isWon = null;
     this.gameboard = [
@@ -22,9 +21,13 @@ class Wordle {
     ];
   }
 
-  guessWord(guess) {
+  guessWord() {
+    const guess = this.gameboard[this.guessCount]
+      .map((obj) => obj.letter)
+      .join("");
+
     if (guess.length > 5) throw new Error("guess must be of length 5");
-    if (!playableWords.includes(guess))
+    if (!playableWords.includes(guess) && !possibleWordles.includes(guess))
       throw new Error(`${guess} is not a valid English word.`);
 
     if (guess === this.word) {

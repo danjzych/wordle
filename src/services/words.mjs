@@ -7,4 +7,4 @@ function randomWord() {
   return possibleWordles[Math.floor(Math.random() * possibleWordles.length)];
 }
 
-export default randomWord;
+export { randomWord, possibleWordles };

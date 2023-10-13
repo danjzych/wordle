@@ -38,28 +38,50 @@ const VALID_KEYS = [
 
 function WordleApp() {
   const [wordle, setWordle] = useState(new Wordle());
-  const [currGuess, setGuess] = useState([]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
+
+    return () => window.removeEventListener("keydown", handleKeydown);
   }, []);
 
   function handleKeydown(evt) {
+    const guessIndex = wordle.gameboard[wordle.guessCount].findIndex(
+      (e) => Object.keys(e).length === 0
+    );
     const keyInput = evt.key.toUpperCase();
-    if (currGuess.length === 5 || !VALID_KEYS.includes(keyInput)) return;
 
-    if (evt.key === "Enter") {
-      handleGuess(currGuess);
-    } else if (keyInput === "BACKSPACE") {
-      const deleteArr = currGuess.slice(0, -1);
-      setGuess(deleteArr);
-    } else {
-      setGuess((g) => [...g, keyInput]);
+    if (keyInput === "ENTER") {
+      if (guessIndex === -1) {
+        handleGuess();
+      } else {
+        return;
+      }
     }
+
+    if (keyInput === "BACKSPACE") {
+      const newWordle = { ...wordle };
+      newWordle.gameboard[wordle.guessCount][guessIndex - 1] = {};
+      setWordle(newWordle);
+      return;
+    }
+
+    if (guessIndex === -1 || !VALID_KEYS.includes(keyInput)) {
+      return;
+    }
+
+    const newWordle = { ...wordle };
+    newWordle.gameboard[wordle.guessCount][guessIndex] = {
+      letter: keyInput,
+      status: "pending",
+    };
+    setWordle(newWordle);
   }
 
   function handleGuess() {
-    if (currGuess.length === 5) return;
+    wordle.guessWord();
+    const newWordle = { ...wordle };
+    setWordle(newWordle);
   }
 
   return (
