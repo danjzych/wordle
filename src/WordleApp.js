@@ -3,6 +3,7 @@ import Wordle from "./services/wordle";
 import Header from "./Header";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
+import ErrorScreen from "./ErrorScreen";
 import Footer from "./Footer";
 
 const VALID_KEYS = [
@@ -38,12 +39,15 @@ const VALID_KEYS = [
 
 function WordleApp() {
   const [wordle, setWordle] = useState(new Wordle());
+  const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
 
     return () => window.removeEventListener("keydown", handleKeydown);
   }, []);
+
+  useEffect(() => {}, [alerts]);
 
   function handleKeydown(evt) {
     const guessIndex = wordle.gameboard[wordle.guessCount].findIndex(
@@ -61,7 +65,9 @@ function WordleApp() {
 
     if (keyInput === "BACKSPACE") {
       const newWordle = { ...wordle };
-      newWordle.gameboard[wordle.guessCount][guessIndex - 1] = {};
+      newWordle.gameboard[wordle.guessCount][
+        guessIndex === -1 ? 4 : guessIndex - 1
+      ] = {};
       setWordle(newWordle);
       return;
     }
@@ -79,14 +85,19 @@ function WordleApp() {
   }
 
   function handleGuess() {
-    wordle.guessWord();
-    const newWordle = { ...wordle };
-    setWordle(newWordle);
+    try {
+      wordle.guessWord();
+      const newWordle = { ...wordle };
+      setWordle(newWordle);
+    } catch (err) {
+      setAlerts((a) => [...a, { type: "error", message: err.message }]);
+    }
   }
 
   return (
     <>
       <Header />
+      {/* {alerts.length > 0 && <ErrorScreen alerts={alerts} />} */}
       <Gameboard gameboard={wordle.gameboard} />
       <Keyboard />
       <Footer />

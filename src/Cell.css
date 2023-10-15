@@ -2,10 +2,43 @@
   height: 100px;
   width: 100px;
   border-radius: 2px;
-  border: 1px solid rgb(66, 96, 96);
-  background-color: rgb(242, 248, 248);
-  transition-duration: .2s;
-  transition-timing-function: ease-in;
+  border: 2px solid #d4d4db;
+  transition: background-color .5s;
   text-align: center;
   font-size: 60px;
+}
+
+.correct, .incorrect, .partial {
+  color: white;
+}
+
+.correct {
+  background-color: #6cac64;
+}
+
+.partial {
+  background-color: #ccb45c;
+}
+
+.incorrect {
+  background-color: #7c7c7c;
+}
+
+.pending {
+  background-color: #d4d4db;
+  animation: inputGrow .25s ease-in-out;
+}
+
+@keyframes inputGrow {
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 5px #9c9c9d;
+  };
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flip {
+
 }
