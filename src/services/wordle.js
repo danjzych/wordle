@@ -8,7 +8,8 @@ const { playableWords } = require("./allPossible");
  */
 class Wordle {
   constructor() {
-    this.word = randomWord().toUpperCase();
+    // this.word = randomWord().toUpperCase();
+    this.word = "ORGAN";
     this.guessCount = 0;
     this.isWon = null;
     this.gameboard = [
@@ -54,7 +55,18 @@ class Wordle {
       if (this.word[i] === letters[i]) {
         status = "correct";
       } else if (this.word.includes(letters[i])) {
-        status = "partial";
+        //FIXME: Account for 'GOGOS" how to not make first G yellow, when the middle green is green for the one G that is correct
+        const currentGuessLetterCount = letters
+          .slice(0, i + 1)
+          .filter((l) => l === letters[i]).length;
+        const wordleLetterCount = this.word
+          .split("")
+          .filter((l) => l === letters[i]).length;
+
+        status =
+          currentGuessLetterCount <= wordleLetterCount
+            ? "partial"
+            : "incorrect";
       } else {
         status = "incorrect";
       }

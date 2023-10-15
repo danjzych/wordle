@@ -10,6 +10,7 @@
 
 .correct, .incorrect, .partial {
   color: white;
+  animation: inputGrow .25s ease-in-out;
 }
 
 .correct {

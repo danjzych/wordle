@@ -3,7 +3,7 @@ import Wordle from "./services/wordle";
 import Header from "./Header";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
-import ErrorScreen from "./ErrorScreen";
+import Alerts from "./Alerts";
 import Footer from "./Footer";
 
 const VALID_KEYS = [
@@ -97,7 +97,7 @@ function WordleApp() {
   return (
     <>
       <Header />
-      {/* {alerts.length > 0 && <ErrorScreen alerts={alerts} />} */}
+      <Alerts alerts={alerts} />
       <Gameboard gameboard={wordle.gameboard} />
       <Keyboard />
       <Footer />
