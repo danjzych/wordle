@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Wordle from "./services/wordle";
 import Header from "./Header";
 import Alerts from "./Alerts";
@@ -39,6 +40,7 @@ const VALID_KEYS = [
 
 function WordleApp() {
   const [wordle, setWordle] = useState(new Wordle());
+  const [record, setRecord] = useState([]);
   const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
@@ -47,7 +49,11 @@ function WordleApp() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, []);
 
-  useEffect(() => {}, [alerts]);
+  useEffect(() => {
+    const previousRecord = JSON.parse(localStorage.getItem("record"));
+
+    setRecord(previousRecord?.length > 0 ? previousRecord : []);
+  }, []);
 
   function handleKeydown(evt) {
     const guessIndex = wordle.gameboard[wordle.guessCount].findIndex(
@@ -93,6 +99,11 @@ function WordleApp() {
     } catch (err) {
       setAlerts((a) => [...a, { type: "error", message: err.message }]);
     }
+  }
+
+  if (wordle.isWon) {
+    const newRecord = [...record, wordle.guessCount];
+    localStorage.setItem("record", JSON.stringify(newRecord));
   }
 
   return (
