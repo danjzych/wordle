@@ -10,7 +10,7 @@
 
 .correct, .incorrect, .partial {
   color: white;
-  animation: inputGrow .25s ease-in-out;
+  /* animation: inputGrow .25s ease-in-out; */
 }
 
 .correct {
@@ -30,6 +30,30 @@
   animation: inputGrow .25s ease-in-out;
 }
 
+td:nth-child(1):not(.empty):not(.pending) {
+  animation: score .6s ease-in-out;
+}
+
+td:nth-child(2):not(.empty):not(.pending) {
+  animation: score .6s ease-in-out;
+  animation-delay: 100ms;
+}
+
+td:nth-child(3):not(.empty):not(.pending) {
+  animation: score .6s ease-in-out;
+  animation-delay: 200ms;
+}
+
+td:nth-child(4):not(.empty):not(.pending) {
+  animation: score .6s ease-in-out;
+  animation-delay: 300ms;
+}
+
+td:nth-child(5):not(.empty):not(.pending) {
+  animation: score .6s ease-in-out;
+  animation-delay: 400ms;
+}
+
 @keyframes inputGrow {
   50% {
     transform: scale(1.05);
@@ -40,6 +64,12 @@
   }
 }
 
-@keyframes flip {
-
+@keyframes score {
+  50% {
+    transform: scale(1.10);
+    box-shadow: 2px 3px 10px #9c9c9d;
+  };
+  100% {
+    transform: scale(1);
+  }
 }
