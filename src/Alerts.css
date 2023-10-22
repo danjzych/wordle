@@ -1,5 +1,24 @@
 .Alerts {
+  height: 50px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+.Alerts-Alert {
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  box-shadow: 1px 6px 10px gray;
+  animation: fadeIn .5s ease-out;
+}
+
+.Alerts-error {
+  background-color: black;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

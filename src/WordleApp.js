@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Wordle from "./services/wordle";
 import Header from "./Header";
+import Alerts from "./Alerts";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
-import Alerts from "./Alerts";
 import Footer from "./Footer";
 
 const VALID_KEYS = [
@@ -85,6 +85,7 @@ function WordleApp() {
   }
 
   function handleGuess() {
+    setAlerts([]);
     try {
       wordle.guessWord();
       const newWordle = { ...wordle };
