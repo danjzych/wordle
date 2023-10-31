@@ -57,7 +57,22 @@ function WordleApp() {
     setRecord(previousRecord?.length > 0 ? previousRecord : []);
   }, []);
 
+  useEffect(() => {
+    if (wordle.isWon === true) {
+      const newRecord = [...record, wordle.guessCount];
+      localStorage.setItem("record", JSON.stringify(newRecord));
+      //WHY DO THIS CREATE A RECURSIVE ERROR (maximumupdatedepthexceeded)??
+      navigate("/statistics");
+    }
+
+    if (wordle.isWon === false) {
+      setAlerts((a) => [...a, { type: "error", message: wordle.word }]);
+    }
+  }, [wordle.isWon]);
+
   function handleKeydown(evt) {
+    if (wordle.isWon !== null) return;
+    //find current index for next letter guess
     const guessIndex = wordle.gameboard[wordle.guessCount].findIndex(
       (e) => Object.keys(e).length === 0
     );
@@ -103,7 +118,7 @@ function WordleApp() {
     }
   }
 
-  // if (wordle.isWon) {
+  // if (wordle.isWon === true) {
   //   const newRecord = [...record, wordle.guessCount];
   //   localStorage.setItem("record", JSON.stringify(newRecord));
   //   //WHY DO THIS CREATE A RECURSIVE ERROR (maximumupdatedepthexceeded)??

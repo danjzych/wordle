@@ -8,8 +8,8 @@ const { playableWords } = require("./allPossible");
  */
 class Wordle {
   constructor() {
-    this.word = randomWord().toUpperCase();
-    // this.word = "ORGAN";
+    // this.word = randomWord().toUpperCase();
+    this.word = "ORGAN";
     this.guessCount = 0;
     this.isWon = null;
     this.gameboard = [
@@ -22,7 +22,11 @@ class Wordle {
     ];
   }
 
-  /** Creates frequency counter */
+  /**
+   * Creates frequency counter for word.
+   * @param {string} word
+   * @returns object
+   */
   getFrequencyCounter(word) {
     const frequency = {};
 
@@ -34,6 +38,10 @@ class Wordle {
     return frequency;
   }
 
+  /**
+   * Handles the guessing of a possible wordle on the gameboard. Validates word
+   * as playable word, check for win or lose, and then scores word.
+   */
   guessWord() {
     const guess = this.gameboard[this.guessCount]
       .map((obj) => obj.letter)
@@ -56,7 +64,7 @@ class Wordle {
 
   /**
    * Adds letters from guess to gameboard along with whether or not they
-   * were guess in the correct place.
+   * were guessed in the correct place.
    *
    * @param {string} guess
    */

@@ -12,14 +12,12 @@ function Alerts({ alerts }) {
   //   return () => clearTimeout(timer);
   // }, [alerts]);
 
-  //TODO: add classes for errors
   return (
-    <div
-      className="Alerts"
-      // style={{ visibility: isVisible ? "visible" : "hidden" }}
-    >
-      {alerts.map((a) => (
-        <h3 className={`Alerts-Alert Alerts-${a.type}`}>{a.message}</h3>
+    <div className="Alerts">
+      {alerts.map((a, i) => (
+        <h3 className={`Alerts-Alert Alerts-${a.type}`} key={i}>
+          {a.message}
+        </h3>
       ))}
     </div>
   );
