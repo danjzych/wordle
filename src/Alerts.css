@@ -12,9 +12,6 @@
   padding: 5px 10px;
   box-shadow: 1px 6px 10px gray;
   animation: fadeIn .5s ease-out;
-}
-
-.Alerts-error {
   background-color: black;
 }
 

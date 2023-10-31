@@ -1,12 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
-import WordleApp from "./WordleApp";
+import Header from "./Header";
+import RoutesList from "./RoutesList";
+import Footer from "./Footer";
 
 import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <WordleApp />
+      <Header />
+      <RoutesList />
+      <Footer />
     </BrowserRouter>
   );
 }

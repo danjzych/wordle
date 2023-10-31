@@ -15,7 +15,7 @@ function Alerts({ alerts }) {
   return (
     <div className="Alerts">
       {alerts.map((a, i) => (
-        <h3 className={`Alerts-Alert Alerts-${a.type}`} key={i}>
+        <h3 className={`Alerts-Alert`} key={i}>
           {a.message}
         </h3>
       ))}

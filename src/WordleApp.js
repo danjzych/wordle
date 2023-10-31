@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Wordle from "./services/wordle";
 import Header from "./Header";
 import Alerts from "./Alerts";
 import Gameboard from "./Gameboard";
@@ -28,7 +27,7 @@ function WordleApp() {
     if (wordle.isWon === true) {
       const newRecord = [...record, wordle.guessCount];
       localStorage.setItem("record", JSON.stringify(newRecord));
-      //WHY DO THIS CREATE A RECURSIVE ERROR (maximumupdatedepthexceeded)??
+
       navigate("/statistics");
     }
 
@@ -39,11 +38,9 @@ function WordleApp() {
 
   return (
     <>
-      <Header />
       <Alerts alerts={alerts} />
       <Gameboard gameboard={wordle.gameboard} />
       <Keyboard />
-      <Footer />
     </>
   );
 }

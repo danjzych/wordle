@@ -32,6 +32,16 @@ const VALID_KEYS = [
   "BACKSPACE",
 ];
 
+/**
+ * Hook to create instance of wordle game, and track its state.
+ *
+ * State:
+ *  -wordle: Instance of game, encapsulates game logic
+ *  -record: Gets and sets user game record
+ *  -alerts: Notifications for user about the state of their game, such as
+ *           errors or success
+ *
+ */
 function useWordle() {
   const [wordle, setWordle] = useState(new Wordle());
   const [record, setRecord] = useState([]);
@@ -48,6 +58,12 @@ function useWordle() {
 
     setRecord(previousRecord?.length > 0 ? previousRecord : []);
   }, []);
+
+  useEffect(() => {
+    if (wordle.isWon) {
+      addAlert("Great!");
+    }
+  }, [wordle.isWon]);
 
   function handleKeydown(evt) {
     if (wordle.isWon !== null) return;
@@ -94,12 +110,12 @@ function useWordle() {
       const newWordle = { ...wordle };
       setWordle(newWordle);
     } catch (err) {
-      addAlert("error", err.message);
+      addAlert(err.message);
     }
   }
 
-  function addAlert(type, message) {
-    setAlerts((a) => [...a, { type, message }]);
+  function addAlert(message) {
+    setAlerts((a) => [...a, { message }]);
   }
 
   return { wordle, record, alerts, handleKeydown, handleGuess, addAlert };
