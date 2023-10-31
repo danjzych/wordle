@@ -43,6 +43,8 @@ function WordleApp() {
   const [record, setRecord] = useState([]);
   const [alerts, setAlerts] = useState([]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
 
@@ -101,10 +103,12 @@ function WordleApp() {
     }
   }
 
-  if (wordle.isWon) {
-    const newRecord = [...record, wordle.guessCount];
-    localStorage.setItem("record", JSON.stringify(newRecord));
-  }
+  // if (wordle.isWon) {
+  //   const newRecord = [...record, wordle.guessCount];
+  //   localStorage.setItem("record", JSON.stringify(newRecord));
+  //   //WHY DO THIS CREATE A RECURSIVE ERROR (maximumupdatedepthexceeded)??
+  //   navigate("/statistics");
+  // }
 
   return (
     <>
