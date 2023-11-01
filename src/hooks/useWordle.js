@@ -63,6 +63,10 @@ function useWordle() {
     if (wordle.isWon) {
       addAlert("Great!");
     }
+
+    if (wordle.isWon === false) {
+      addAlert(wordle.word);
+    }
   }, [wordle.isWon]);
 
   function handleKeydown(evt) {

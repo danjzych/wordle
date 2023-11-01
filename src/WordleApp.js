@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
 import Alerts from "./Alerts";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
-import Footer from "./Footer";
 import useWordle from "./hooks/useWordle";
 
 function WordleApp() {
@@ -27,13 +25,16 @@ function WordleApp() {
     if (wordle.isWon === true) {
       const newRecord = [...record, wordle.guessCount];
       localStorage.setItem("record", JSON.stringify(newRecord));
-
-      navigate("/statistics");
     }
 
-    if (wordle.isWon === false) {
-      addAlert("error", wordle.word);
+    let timer;
+    if (wordle.isWon !== null) {
+      timer = setTimeout(() => {
+        navigate("/statistics");
+      }, 1750);
     }
+
+    return () => clearTimeout(timer);
   }, [wordle.isWon]);
 
   return (

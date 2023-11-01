@@ -2,9 +2,34 @@
   z-index: 100;
   width: 100vw;
   position: absolute;
-  top: 20px;
+  top: 400px;
   backdrop-filter: blur(1px);
   padding: 25px 0;
+  animation: 1s fadeIn ease-in-out forwards, 1s slideUp ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    top: 400px;
+  }
+  10% {
+    top: 200px
+  }
+  20% {
+    top: 100px
+  }
+  100% {
+    top: 20px;
+  }
 }
 
 .Help-inner {
@@ -15,6 +40,9 @@
   border-top: 1px solid rgb(66, 96, 96);
   box-shadow: -4px 0px 3px rgb(66, 96, 96);
   padding: 30px 100px;
+  opacity: 0;
+  animation: .25s fadeIn ease-out forwards;
+  animation-delay: .25s;
 }
 
 .Help-inner ul {
