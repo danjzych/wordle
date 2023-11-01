@@ -3,14 +3,7 @@ import StatisticsCalculator from "../Statistics/StatisticsCalculator";
 import WordleApp from "../Game/WordleApp";
 import Help from "../Help/Help";
 
-function RoutesList({
-  wordle,
-  record,
-  alerts,
-  isPlaying,
-  handleKeydown,
-  endGame,
-}) {
+function RoutesList({ wordle, record, alerts, handleKeydown, endGame }) {
   return (
     <Routes>
       <Route path="/help" element={<Help />} />
@@ -25,7 +18,6 @@ function RoutesList({
             wordle={wordle}
             record={record}
             alerts={alerts}
-            isPlaying={isPlaying}
             handleKeydown={handleKeydown}
             endGame={endGame}
           />
@@ -38,7 +30,6 @@ function RoutesList({
             wordle={wordle}
             record={record}
             alerts={alerts}
-            isPlaying={isPlaying}
             handleKeydown={handleKeydown}
             endGame={endGame}
           />

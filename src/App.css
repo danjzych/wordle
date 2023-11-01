@@ -1,11 +1,9 @@
-/* @keyframes slideUp {
-  0% {
-    top: 400px;
-  }
-  20% {
-    top: 200px
-  }
-  100% {
-    top: 20px;
-  }
-} */
+.prevent-animation {
+  animation: none !important;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

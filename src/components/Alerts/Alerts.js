@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import playingContext from "../../contexts/playingContext";
 import "./Alerts.css";
 
 function Alerts({ alerts }) {
@@ -11,6 +12,8 @@ function Alerts({ alerts }) {
 
   //   return () => clearTimeout(timer);
   // }, [alerts]);
+
+  const { isPlaying } = useContext(playingContext);
 
   return (
     <div className="Alerts">

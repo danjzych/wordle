@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import playingContext from "../../contexts/playingContext";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../Alerts/Alerts";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
 
-function WordleApp({ wordle, alerts, isPlaying, handleKeydown, endGame }) {
+function WordleApp({ wordle, alerts, handleKeydown, endGame }) {
   const navigate = useNavigate();
+  const { isPlaying } = useContext(playingContext);
 
   /** Add keydown event listener */
   useEffect(() => {
@@ -30,7 +32,9 @@ function WordleApp({ wordle, alerts, isPlaying, handleKeydown, endGame }) {
   return (
     <>
       <Alerts alerts={alerts} />
-      <Gameboard gameboard={wordle.gameboard} />
+      <div className="flex-center">
+        <Gameboard gameboard={wordle.gameboard} />
+      </div>
       <Keyboard />
     </>
   );

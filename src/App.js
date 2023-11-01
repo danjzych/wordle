@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { useState } from "react";
+import playingContext from "./contexts/playingContext";
 import useWordle from "./hooks/useWordle";
 import Header from "./components/Common/Header";
 import RoutesList from "./components/Common/RoutesList";
@@ -17,16 +18,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
-      <RoutesList
-        wordle={wordle}
-        record={record}
-        alerts={alerts}
-        isPlaying={isPlaying}
-        handleKeydown={handleKeydown}
-        endGame={endGame}
-      />
-      <Footer />
+      <playingContext.Provider value={{ isPlaying }}>
+        <Header />
+        <RoutesList
+          wordle={wordle}
+          record={record}
+          alerts={alerts}
+          handleKeydown={handleKeydown}
+          endGame={endGame}
+        />
+        <Footer />
+      </playingContext.Provider>
     </BrowserRouter>
   );
 }

@@ -1,30 +1,35 @@
 import { Link } from "react-router-dom";
-import Row from "../Game/Row";
+import Gameboard from "../Game/Gameboard";
 import "./Help.css";
 
 //TODO: improve animations and style of cells within page.
-
-const helpRows = [
+const helpBoards = [
   [
-    { letter: "R", status: "correct" },
-    { letter: "E", status: "" },
-    { letter: "A", status: "" },
-    { letter: "C", status: "" },
-    { letter: "T", status: "" },
+    [
+      { letter: "R", status: "correct" },
+      { letter: "E", status: "" },
+      { letter: "A", status: "" },
+      { letter: "C", status: "" },
+      { letter: "T", status: "" },
+    ],
   ],
   [
-    { letter: "P", status: "" },
-    { letter: "I", status: "partial" },
-    { letter: "L", status: "" },
-    { letter: "L", status: "" },
-    { letter: "S", status: "" },
+    [
+      { letter: "P", status: "" },
+      { letter: "I", status: "partial" },
+      { letter: "L", status: "" },
+      { letter: "L", status: "" },
+      { letter: "S", status: "" },
+    ],
   ],
   [
-    { letter: "V", status: "" },
-    { letter: "A", status: "" },
-    { letter: "G", status: "" },
-    { letter: "U", status: "incorrect" },
-    { letter: "E", status: "" },
+    [
+      { letter: "V", status: "" },
+      { letter: "A", status: "" },
+      { letter: "G", status: "" },
+      { letter: "U", status: "incorrect" },
+      { letter: "E", status: "" },
+    ],
   ],
 ];
 
@@ -49,19 +54,19 @@ function Help() {
         <div className="Help-examples">
           <h4>Examples</h4>
           <div>
-            <Row row={helpRows[0]} />
+            <Gameboard gameboard={helpBoards[0]} />
             <p>
               <b>R</b> is in the word and in the correct spot.
             </p>
           </div>
           <div>
-            <Row row={helpRows[1]} />
+            <Gameboard gameboard={helpBoards[1]} />
             <p>
               <b>I</b> is in the word and in the wrong spot.
             </p>
           </div>
           <div>
-            <Row row={helpRows[2]} />
+            <Gameboard gameboard={helpBoards[2]} />
             <p>
               <b>U</b> is not in the word in any spot.
             </p>

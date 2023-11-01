@@ -5,7 +5,7 @@ import "./Statistics.css";
 
 function Statistics({ gamesPlayed, winPercentage, guessDistribution }) {
   return (
-    <div className="Statistics">
+    <div className="Statistics flex-center">
       <div className="Statistics-inner">
         <div className="Statistics-item">
           <h4>STATISTICS</h4>
