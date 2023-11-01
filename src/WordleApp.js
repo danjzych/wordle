@@ -3,10 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Alerts from "./Alerts";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
-import useWordle from "./hooks/useWordle";
 
-function WordleApp() {
-  const { wordle, record, alerts, handleKeydown, addAlert } = useWordle();
+function WordleApp({ wordle, record, alerts, handleKeydown }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,18 +13,7 @@ function WordleApp() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, []);
 
-  // useEffect(() => {
-  //   const previousRecord = JSON.parse(localStorage.getItem("record"));
-
-  //   setRecord(previousRecord?.length > 0 ? previousRecord : []);
-  // }, []);
-
   useEffect(() => {
-    if (wordle.isWon === true) {
-      const newRecord = [...record, wordle.guessCount];
-      localStorage.setItem("record", JSON.stringify(newRecord));
-    }
-
     let timer;
     if (wordle.isWon !== null) {
       timer = setTimeout(() => {

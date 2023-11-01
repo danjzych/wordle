@@ -69,13 +69,13 @@ function Help() {
         </div>
 
         <p>
-          A new puzzle is <b>not</b> released daily at midnight. If you haven't
-          already, check out my{" "}
+          A new puzzle is <b>not</b> released daily at midnight. If you want to
+          learn more about the developer who made this, check out my{" "}
           <a href="http://www.danielzych.com" target="_blank">
             personal website
           </a>{" "}
-          to learn more about the developer who made this, Daniel Zych. You can
-          also check out the GitHub repo{" "}
+          check out my personal website if you haven't already. You can also
+          check out the GitHub repo{" "}
           <a href="https://github.com/danjzych/wordle" target="_blank">
             here
           </a>

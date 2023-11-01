@@ -48,24 +48,28 @@ function useWordle() {
   const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
-    const previousRecord = JSON.parse(localStorage.getItem("record"));
+    const previousRecord = JSON.parse(localStorage.getItem("wordleRecord"));
 
     setRecord(previousRecord?.length > 0 ? previousRecord : []);
   }, []);
 
   useEffect(() => {
-    const previousRecord = JSON.parse(localStorage.getItem("record"));
+    if (wordle.isWon !== null) {
+      const newRecord = [
+        ...record,
+        { won: wordle.isWon, guesses: wordle.guessCount },
+      ];
 
-    setRecord(previousRecord?.length > 0 ? previousRecord : []);
-  }, []);
+      setRecord(newRecord);
+      localStorage.setItem("wordleRecord", JSON.stringify(newRecord));
 
-  useEffect(() => {
-    if (wordle.isWon) {
-      addAlert("Great!");
-    }
+      if (wordle.isWon) {
+        addAlert("Great!");
+      }
 
-    if (wordle.isWon === false) {
-      addAlert(wordle.word);
+      if (wordle.isWon === false) {
+        addAlert(wordle.word);
+      }
     }
   }, [wordle.isWon]);
 

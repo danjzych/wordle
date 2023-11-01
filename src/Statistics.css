@@ -10,9 +10,22 @@
 }
 
 .Statistics-inner {
+  width: inherit;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  padding: 30px 100px;
+}
+
+.Statistics-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Statistics-card-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .Statistics-exit {

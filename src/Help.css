@@ -38,7 +38,7 @@
   gap: 25px;
   background-color: white;
   border-top: 1px solid rgb(66, 96, 96);
-  box-shadow: -4px 0px 3px rgb(66, 96, 96);
+  box-shadow: 0px -5px 5px -5px rgb(66, 96, 96);
   padding: 30px 100px;
   opacity: 0;
   animation: .25s fadeIn ease-out forwards;
@@ -60,17 +60,17 @@
 }
 
 .Help-inner a {
-  text-decoration: underline;
   color: inherit;
 }
 
 .Help-inner a:hover {
   opacity: .65;
+  text-decoration: none;
 }
 
 .Help-inner a:active {
   opacity: .4;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .Help-x {
