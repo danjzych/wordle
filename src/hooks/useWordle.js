@@ -47,32 +47,45 @@ function useWordle() {
   const [record, setRecord] = useState([]);
   const [alerts, setAlerts] = useState([]);
 
+  /** Get Record from local storage on page load */
   useEffect(() => {
     const previousRecord = JSON.parse(localStorage.getItem("wordleRecord"));
 
     setRecord(previousRecord?.length > 0 ? previousRecord : []);
   }, []);
 
+  /** Call handleGameEnd once at end of game */
   useEffect(() => {
     if (wordle.isWon !== null) {
-      const newRecord = [
-        ...record,
-        { won: wordle.isWon, guesses: wordle.guessCount },
-      ];
-
-      setRecord(newRecord);
-      localStorage.setItem("wordleRecord", JSON.stringify(newRecord));
-
-      if (wordle.isWon) {
-        addAlert("Great!");
-      }
-
-      if (wordle.isWon === false) {
-        addAlert(wordle.word);
-      }
+      handleGameEnd();
     }
   }, [wordle.isWon]);
 
+  /** Adds new record to local storage for stats and gives alert for win or lose */
+  function handleGameEnd() {
+    const newRecord = [
+      ...record,
+      { won: wordle.isWon, guesses: wordle.guessCount },
+    ];
+
+    setRecord(newRecord);
+    localStorage.setItem("wordleRecord", JSON.stringify(newRecord));
+
+    if (wordle.isWon) {
+      addAlert("Great!");
+    }
+
+    if (wordle.isWon === false) {
+      addAlert(wordle.word);
+    }
+  }
+
+  /**
+   * Handles keydown logic for Wordle game. Backspaces are used to remove most
+   * recent guess from row representing current guess in game matrix, Enter
+   * invokes function to score word. Otherwise, listens for valid characters
+   * and uses them to form guess.
+   */
   function handleKeydown(evt) {
     if (wordle.isWon !== null) return;
 
@@ -83,11 +96,7 @@ function useWordle() {
     const keyInput = evt.key.toUpperCase();
 
     if (keyInput === "ENTER") {
-      if (guessIndex === -1) {
-        handleGuess();
-      } else {
-        return;
-      }
+      return handleGuess();
     }
 
     if (keyInput === "BACKSPACE") {
@@ -99,6 +108,7 @@ function useWordle() {
       return;
     }
 
+    //if current guess is 5 letters, or key is invalid, do nothing
     if (guessIndex === -1 || !VALID_KEYS.includes(keyInput)) {
       return;
     }
@@ -111,6 +121,7 @@ function useWordle() {
     setWordle(newWordle);
   }
 
+  //Guesses word and updates state
   function handleGuess() {
     setAlerts([]);
     try {
@@ -122,6 +133,10 @@ function useWordle() {
     }
   }
 
+  /**
+   * Adds alert to alert state for render.
+   * @param {string} message
+   */
   function addAlert(message) {
     setAlerts((a) => [...a, { message }]);
   }

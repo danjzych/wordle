@@ -12,10 +12,11 @@ function getGuessDistribution(word) {
 
 function StatisticsCalculator({ record }) {
   const gamesPlayed = record.length;
-  const winPercentage = Math.round(
-    (record.filter((r) => r.won == true).length / gamesPlayed) * 100,
-    2
-  );
+  const winPercentage =
+    Math.round(
+      (record.filter((r) => r.won == true).length / gamesPlayed) * 100,
+      2
+    ) || 0;
   // const currentStreak =
   // const maxStreak
   const guessDistribution = getGuessDistribution(record.map((r) => r.guesses));

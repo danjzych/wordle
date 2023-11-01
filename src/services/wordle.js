@@ -50,7 +50,7 @@ class Wordle {
     if (guess.length > 5) throw new Error("guess must be of length 5");
     //TODO: create one list of words myself
     if (!playableWords.includes(guess) && !possibleWordles.includes(guess))
-      throw new Error(`${guess} is not a valid English word.`);
+      throw new Error(`${guess} is not in word list`);
 
     if (guess === this.word) {
       this.isWon = true;
