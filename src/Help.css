@@ -1,20 +1,51 @@
 .Help {
   z-index: 100;
+  width: 100vw;
   position: absolute;
   top: 20px;
-  display: flex;
   backdrop-filter: blur(1px);
-  flex-direction: column;
   padding: 25px 0;
 }
 
 .Help-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
   background-color: white;
   border-top: 1px solid rgb(66, 96, 96);
   box-shadow: -4px 0px 3px rgb(66, 96, 96);
+  padding: 30px 100px;
 }
 
-.Header-x {
+.Help-inner ul {
+  padding: 0 0 0 20px;
+}
+
+.Help-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Help-examples p {
+  margin: 5px 0 10px;
+}
+
+.Help-inner a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.Help-inner a:hover {
+  opacity: .65;
+}
+
+.Help-inner a:active {
+  opacity: .4;
+  text-decoration: none;
+}
+
+.Help-x {
   position: absolute;
   top: 30px;
   right: 10px;
@@ -23,7 +54,7 @@
   text-decoration: none;
 }
 
-.Header-x:hover {
+.Help-x:hover {
   opacity: .6;
   cursor: pointer;
 }
