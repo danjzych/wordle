@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Row from "./Row";
+import Row from "../Game/Row";
 import "./Help.css";
 
 //TODO: improve animations and style of cells within page.

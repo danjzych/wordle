@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Alerts from "./Alerts";
+import Alerts from "../Alerts/Alerts";
 import Gameboard from "./Gameboard";
 import Keyboard from "./Keyboard";
 

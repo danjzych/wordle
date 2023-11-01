@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import StatisticsCalculator from "./StatisticsCalculator";
-import WordleApp from "./WordleApp";
-import Help from "./Help";
+import StatisticsCalculator from "../Statistics/StatisticsCalculator";
+import WordleApp from "../Game/WordleApp";
+import Help from "../Help/Help";
 
 function RoutesList({ wordle, record, alerts, handleKeydown }) {
   return (

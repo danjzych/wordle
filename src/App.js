@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import useWordle from "./hooks/useWordle";
-import Header from "./Header";
-import RoutesList from "./RoutesList";
-import Footer from "./Footer";
+import Header from "./components/Common/Header";
+import RoutesList from "./components/Common/RoutesList";
+import Footer from "./components/Common/Footer";
 
 import "./App.css";
 
