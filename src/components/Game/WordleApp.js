@@ -1,6 +1,6 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import playingContext from "../../contexts/playingContext";
-import { useNavigate } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import Header from "../Common/Header";
 import Alerts from "../Alerts/Alerts";
 import Gameboard from "./Gameboard";
@@ -17,8 +17,8 @@ const defaultModalState = {
 
 function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
   const [modalState, setModalState] = useState(defaultModalState);
+  const nodeRef = useRef(null);
   const { isPlaying } = useContext(playingContext);
-  const navigate = useNavigate();
 
   /** Add keydown event listener */
   useEffect(() => {
@@ -32,7 +32,7 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
     let timer;
     if (wordle.isWon !== null && !isPlaying) {
       timer = setTimeout(() => {
-        navigate("/statistics");
+        toggleModal("statistics");
       }, 850);
       endGame();
     }
@@ -41,7 +41,8 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
   }, [wordle.isWon]);
 
   function toggleModal(modal) {
-    setModalState((prev) => ({ ...prev, [modal]: !prev[modal] }));
+    const newModalState = { ...defaultModalState, [modal]: !modalState[modal] };
+    setModalState(newModalState);
   }
 
   return (
@@ -52,8 +53,10 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
         <Gameboard gameboard={wordle.gameboard} />
       </div>
       <Keyboard />
-      {modalState.help && <Help />}
-      {modalState.statistics && <StatisticsCalculator record={record} />}
+      {modalState.help && <Help toggleModal={toggleModal} />}
+      {modalState.statistics && (
+        <StatisticsCalculator record={record} toggleModal={toggleModal} />
+      )}
       <Footer />
     </>
   );

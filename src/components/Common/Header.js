@@ -13,7 +13,7 @@ function Header({ toggleModal }) {
         <h1>Wordle</h1>
       </div>
       <div className="Header-Content">
-        <div>
+        <div onClick={handleClick}>
           <i data-name="help" className="bi bi-question-circle"></i>
         </div>
         <div onClick={handleClick}>

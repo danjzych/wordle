@@ -33,7 +33,11 @@ const helpBoards = [
   ],
 ];
 
-function Help() {
+function Help({ toggleModal }) {
+  function handleClick() {
+    toggleModal("help");
+  }
+
   return (
     <div className="Help">
       <div className="Help-inner">
@@ -87,9 +91,9 @@ function Help() {
           .
         </p>
       </div>
-      <Link to="/" className="Help-x">
+      <div className="Help-x" onClick={handleClick}>
         <div>X</div>
-      </Link>
+      </div>
     </div>
   );
 }

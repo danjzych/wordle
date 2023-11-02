@@ -1,10 +1,6 @@
-import { BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 import playingContext from "./contexts/playingContext";
 import useWordle from "./hooks/useWordle";
-import Header from "./components/Common/Header";
-import RoutesList from "./components/Common/RoutesList";
-import Footer from "./components/Common/Footer";
 
 import "./App.css";
 import WordleApp from "./components/Game/WordleApp";
@@ -18,26 +14,15 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <playingContext.Provider value={{ isPlaying }}>
-        {/* <Header />
-        <RoutesList
-          wordle={wordle}
-          record={record}
-          alerts={alerts}
-          handleKeydown={handleKeydown}
-          endGame={endGame}
-        />
-        <Footer /> */}
-        <WordleApp
-          wordle={wordle}
-          record={record}
-          alerts={alerts}
-          handleKeydown={handleKeydown}
-          endGame={endGame}
-        />
-      </playingContext.Provider>
-    </BrowserRouter>
+    <playingContext.Provider value={{ isPlaying }}>
+      <WordleApp
+        wordle={wordle}
+        record={record}
+        alerts={alerts}
+        handleKeydown={handleKeydown}
+        endGame={endGame}
+      />
+    </playingContext.Provider>
   );
 }
 
