@@ -3,7 +3,16 @@ import StatisticsCard from "./StatisticsCard";
 import GuessDistributionChart from "./BarChart";
 import "./Statistics.css";
 
-function Statistics({ gamesPlayed, winPercentage, guessDistribution }) {
+function Statistics({
+  gamesPlayed,
+  winPercentage,
+  guessDistribution,
+  toggleModal,
+}) {
+  function handleClick() {
+    toggleModal("statistics");
+  }
+
   return (
     <div className="Statistics flex-center">
       <div className="Statistics-inner">
@@ -21,10 +30,10 @@ function Statistics({ gamesPlayed, winPercentage, guessDistribution }) {
           <GuessDistributionChart guessDistribution={guessDistribution} />
         </div>
       </div>
-      <Link to="/" className="Statistics-exit">
+      <div className="Statistics-exit" onClick={handleClick}>
         <small>Back to puzzle</small>
         <small>X</small>
-      </Link>
+      </div>
     </div>
   );
 }

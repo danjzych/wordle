@@ -10,7 +10,7 @@ function getGuessDistribution(word) {
   return distribution;
 }
 
-function StatisticsCalculator({ record }) {
+function StatisticsCalculator({ record, toggleModal }) {
   const gamesPlayed = record.length;
   const winPercentage =
     Math.round(
@@ -26,6 +26,7 @@ function StatisticsCalculator({ record }) {
       gamesPlayed={gamesPlayed}
       winPercentage={winPercentage}
       guessDistribution={guessDistribution}
+      toggleModal={toggleModal}
     />
   );
 }
