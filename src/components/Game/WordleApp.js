@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import playingContext from "../../contexts/playingContext";
-import { CSSTransition } from "react-transition-group";
 import Header from "../Common/Header";
 import Alerts from "../Alerts/Alerts";
 import Gameboard from "./Gameboard";
