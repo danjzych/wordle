@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Gameboard from "../Game/Gameboard";
 import "./Help.css";
 
-//TODO: improve animations and style of cells within page.
+//TODO: improve animations of cells within page?
 const helpBoards = [
   [
     [

@@ -22,7 +22,7 @@ function WordleApp({ wordle, alerts, handleKeydown, endGame }) {
     if (wordle.isWon !== null && !isPlaying) {
       timer = setTimeout(() => {
         navigate("/statistics");
-      }, 1750);
+      }, 850);
       endGame();
     }
 
