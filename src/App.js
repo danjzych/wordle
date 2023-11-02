@@ -7,6 +7,7 @@ import RoutesList from "./components/Common/RoutesList";
 import Footer from "./components/Common/Footer";
 
 import "./App.css";
+import WordleApp from "./components/Game/WordleApp";
 
 function App() {
   const { wordle, record, alerts, handleKeydown } = useWordle();
@@ -19,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
       <playingContext.Provider value={{ isPlaying }}>
-        <Header />
+        {/* <Header />
         <RoutesList
           wordle={wordle}
           record={record}
@@ -27,7 +28,14 @@ function App() {
           handleKeydown={handleKeydown}
           endGame={endGame}
         />
-        <Footer />
+        <Footer /> */}
+        <WordleApp
+          wordle={wordle}
+          record={record}
+          alerts={alerts}
+          handleKeydown={handleKeydown}
+          endGame={endGame}
+        />
       </playingContext.Provider>
     </BrowserRouter>
   );

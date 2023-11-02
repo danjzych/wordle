@@ -22,20 +22,6 @@
   transition-timing-function: ease-out;
 }
 
-.Header a {
-  color: black;
-  text-decoration: none;
-}
-
-.Header a.active {
-  color: black;
-  text-decoration: none;
-}
-
-.Header-Content a.active {
-
-}
-
 .Header-Content i:hover {
   opacity: .5;
 }

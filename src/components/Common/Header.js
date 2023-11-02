@@ -1,26 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 
-function Header() {
+function Header({ toggleModal }) {
+  function handleClick(evt) {
+    const modalName = evt.target.getAttribute("data-name");
+    toggleModal(modalName);
+  }
   return (
     <header className="Header">
       <div className="Header-Content Header-Logo">
-        <NavLink to="/">
-          <h1>Wordle</h1>
-        </NavLink>
+        <h1>Wordle</h1>
       </div>
       <div className="Header-Content">
-        <NavLink to="/help">
-          <i className="bi bi-question-circle"></i>
-        </NavLink>
-        <NavLink to="/statistics">
-          <i className="bi bi-bar-chart-fill"></i>
-        </NavLink>
-        <NavLink to="/settings">
-          <i className="bi bi-gear-fill"></i>
-        </NavLink>
+        <div>
+          <i data-name="help" className="bi bi-question-circle"></i>
+        </div>
+        <div onClick={handleClick}>
+          <i data-name="statistics" className="bi bi-bar-chart-fill"></i>
+        </div>
+        <div onClick={handleClick}>
+          <i data-name="settings" className="bi bi-gear-fill"></i>
+        </div>
       </div>
     </header>
   );
