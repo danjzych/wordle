@@ -10,10 +10,11 @@ function Row({ row, rowIdx, alerts }) {
   return (
     <tr
       className={
-        alerts.length > 0 &&
+        alerts?.length > 0 &&
         alerts[0].message !== "Great!" &&
-        rowIdx === currentGuess &&
-        "Row-incorrect"
+        rowIdx === currentGuess
+          ? "Row-incorrect"
+          : ""
       }
     >
       {row.map((letter, idx) => (

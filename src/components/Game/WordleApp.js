@@ -55,22 +55,18 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
       <CSSTransition
         in={modalState.help}
         timeout={1000}
-        classNames="Help"
+        classNames="Help Help"
         unmountOnExit
       >
-        <div>
-          <Help toggleModal={toggleModal} />
-        </div>
+        <Help toggleModal={toggleModal} />
       </CSSTransition>
       <CSSTransition
         in={modalState.statistics}
         timeout={1000}
-        classNames="Statistics"
+        classNames="Statistics Statistics"
         unmountOnExit
       >
-        <div>
-          <StatisticsCalculator record={record} toggleModal={toggleModal} />
-        </div>
+        <StatisticsCalculator record={record} toggleModal={toggleModal} />
       </CSSTransition>
       <Footer />
     </>

@@ -8,8 +8,8 @@ const { playableWords } = require("./allPossible");
  */
 class Wordle {
   constructor() {
-    this.word = randomWord().toUpperCase();
-    // this.word = "ORGAN";
+    // this.word = randomWord().toUpperCase();
+    this.word = "ORGAN";
     this.guessCount = 0;
     this.isWon = null;
     this.gameboard = [
