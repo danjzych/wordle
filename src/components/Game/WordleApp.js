@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import playingContext from "../../contexts/playingContext";
 import Header from "../Common/Header";
 import Alerts from "../Alerts/Alerts";
@@ -7,6 +7,7 @@ import Keyboard from "./Keyboard";
 import Help from "../Help/Help";
 import StatisticsCalculator from "../Statistics/StatisticsCalculator";
 import Footer from "../Common/Footer";
+import { CSSTransition, Transition } from "react-transition-group";
 
 const defaultModalState = {
   help: false,
@@ -16,7 +17,6 @@ const defaultModalState = {
 
 function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
   const [modalState, setModalState] = useState(defaultModalState);
-  const nodeRef = useRef(null);
   const { isPlaying } = useContext(playingContext);
 
   /** Add keydown event listener */
@@ -52,10 +52,26 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
         <Gameboard gameboard={wordle.gameboard} />
       </div>
       <Keyboard />
-      {modalState.help && <Help toggleModal={toggleModal} />}
-      {modalState.statistics && (
-        <StatisticsCalculator record={record} toggleModal={toggleModal} />
-      )}
+      <CSSTransition
+        in={modalState.help}
+        timeout={1000}
+        classNames="Help"
+        unmountOnExit
+      >
+        <div>
+          <Help toggleModal={toggleModal} />
+        </div>
+      </CSSTransition>
+      <CSSTransition
+        in={modalState.statistics}
+        timeout={1000}
+        classNames="Statistics"
+        unmountOnExit
+      >
+        <div>
+          <StatisticsCalculator record={record} toggleModal={toggleModal} />
+        </div>
+      </CSSTransition>
       <Footer />
     </>
   );

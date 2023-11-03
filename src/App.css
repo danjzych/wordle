@@ -1,9 +1,26 @@
-.prevent-animation {
-  animation: none !important;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes wiggle {
+  0% {
+    right: 0;
+  }
+  20% {
+    right: -40px;
+  }
+  40% {
+    right: 30px;
+  }
+  60% {
+    right: -20px;
+  }
+  80% {
+    right: 10px;
+  }
+  100% {
+    right: 0;
+  }
 }

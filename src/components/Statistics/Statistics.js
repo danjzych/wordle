@@ -30,7 +30,7 @@ function Statistics({
           <GuessDistributionChart guessDistribution={guessDistribution} />
         </div>
       </div>
-      <div className="Statistics-exit" onClick={handleClick}>
+      <div className="Statistics-x" onClick={handleClick}>
         <small>Back to puzzle</small>
         <small>X</small>
       </div>
