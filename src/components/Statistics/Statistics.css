@@ -24,17 +24,14 @@
 }
 
 .Statistics-exit {
+  opacity: 1;
   top: 0px;
-  right: 0;
-}
-
-.Statistics-exit .Statistics {
-  animation: wiggle .25s ease-out;
 }
 
 .Statistics-exit-active {
-  top: -100vh;
-  transition: all .25s ease-out .5s;
+  opacity: .5;
+  top: 100vh;
+  transition: opacity .1s linear .2s, top .25s ease-out .1s;
 }
 
 .Statistics-inner {

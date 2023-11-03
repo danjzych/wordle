@@ -94,26 +94,32 @@ function useWordle() {
     }
   }
 
+  /** Function to add letters for keyboard event listener */
+  function handleKeydown(evt) {
+    const keyInput = evt.key.toUpperCase();
+
+    addLetterGuessToBoard(keyInput);
+  }
+
   /**
-   * Handles keydown logic for Wordle game. Backspaces are used to remove most
+   * Handles letter logic for Wordle game. Backspaces are used to remove most
    * recent guess from row representing current guess in game matrix, Enter
    * invokes function to score word. Otherwise, listens for valid characters
    * and uses them to form guess.
    */
-  function handleKeydown(evt) {
+  function addLetterGuessToBoard(letter) {
     if (wordle.isWon !== null) return;
 
     //find current index for next letter guess
     const guessIndex = wordle.gameboard[wordle.guessCount].findIndex(
       (e) => Object.keys(e).length === 0
     );
-    const keyInput = evt.key.toUpperCase();
 
-    if (keyInput === "ENTER") {
+    if (letter === "ENTER") {
       return handleGuess();
     }
 
-    if (keyInput === "BACKSPACE") {
+    if (letter === "BACKSPACE") {
       const newWordle = { ...wordle };
       newWordle.gameboard[wordle.guessCount][
         guessIndex === -1 ? 4 : guessIndex - 1
@@ -123,13 +129,13 @@ function useWordle() {
     }
 
     //if current guess is 5 letters, or key is invalid, do nothing
-    if (guessIndex === -1 || !VALID_KEYS.includes(keyInput)) {
+    if (guessIndex === -1 || !VALID_KEYS.includes(letter)) {
       return;
     }
 
     const newWordle = { ...wordle };
     newWordle.gameboard[wordle.guessCount][guessIndex] = {
-      letter: keyInput,
+      letter: letter,
       status: "pending",
     };
     setWordle(newWordle);
@@ -155,7 +161,15 @@ function useWordle() {
     setAlerts((a) => [...a, { message }]);
   }
 
-  return { wordle, record, alerts, handleKeydown, handleGuess, addAlert };
+  return {
+    wordle,
+    record,
+    alerts,
+    handleKeydown,
+    handleGuess,
+    addAlert,
+    addLetterGuessToBoard,
+  };
 }
 
 export default useWordle;

@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# React Wordle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Wordle clone was built using React, React Transition Group, and react-chartjs-2. I built this project as a way to practice React application, and because I love Wordle.
 
-## Available Scripts
+## Running The App
 
-In the project directory, you can run:
+To run this Wordle app yourself, follow these simple steps:
 
-### `npm start`
+1. Download repository
+2. run `npm install` within /wordle
+3. run `npm start` within /wordle
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Notable Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In addition to basic Wordle game functionality, this application has:
 
-### `npm test`
+- User can _intuitively use keyboard_ to make their guess. There is no input field, just type!
+- _Fully functional clickable keyboard_. Can toggle between both seemlessly
+- User's _game record stored in local storage_ and used to generate _insights on "statistics" tab_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Upcoming Features and Additions
 
-### `npm run build`
+I have not been able to add all features I wanted to add to this app as of 11/03/2023. I plan to iterate on this project continually and rapidly. Expect the following in the coming weeks:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- _Testing_!
+- More _Responsive layout_ and _mobile layout_ with media queries
+- _Improved animations_, such as flipping tiles when a guess is submitted
+- _Maintaining game state in local storage_ so that user can come back to a particular Wordle throught the day
+- Implement backend that provides all users with the _same Wordle every 24hrs_
+- _TypeScript refactor_

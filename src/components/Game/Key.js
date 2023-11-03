@@ -3,7 +3,7 @@ import playingContext from "../../contexts/playingContext";
 import "./Key.css";
 
 function Key({ gameKey }) {
-  const { gameboard } = useContext(playingContext);
+  const { gameboard, addLetter } = useContext(playingContext);
 
   const lettersByRecency = gameboard.flat().reverse();
   const letterStatus = lettersByRecency.findIndex(
@@ -17,6 +17,7 @@ function Key({ gameKey }) {
           ? lettersByRecency[letterStatus].status
           : "Key-default-color"
       }`}
+      onClick={() => addLetter(gameKey)}
     >
       {gameKey}
     </div>

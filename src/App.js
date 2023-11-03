@@ -6,7 +6,13 @@ import "./App.css";
 import WordleApp from "./components/Game/WordleApp";
 
 function App() {
-  const { wordle, record, alerts, handleKeydown } = useWordle();
+  const {
+    wordle,
+    record,
+    alerts,
+    handleKeydown,
+    addLetterGuessToBoard: addLetter,
+  } = useWordle();
   const [isPlaying, setIsPlaying] = useState(false);
 
   function endGame() {
@@ -19,6 +25,7 @@ function App() {
         isPlaying,
         currentGuess: wordle.guessCount,
         gameboard: wordle.gameboard,
+        addLetter: addLetter,
       }}
     >
       <WordleApp
