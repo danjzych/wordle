@@ -24,6 +24,18 @@ function GuessDistributionChart({ guessDistribution }) {
         enabled: false,
       },
     },
+    // scales: {
+    //   x: {
+    //     grid: {
+    //       display: false,
+    //     },
+    //   },
+    //   y: {
+    //     grid: {
+    //       display: false,
+    //     },
+    //   },
+    // },
   };
   return <Bar data={chartData} options={displayOptions} />;
 }

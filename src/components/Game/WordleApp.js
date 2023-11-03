@@ -7,7 +7,7 @@ import Keyboard from "./Keyboard";
 import Help from "../Help/Help";
 import StatisticsCalculator from "../Statistics/StatisticsCalculator";
 import Footer from "../Common/Footer";
-import { CSSTransition, Transition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 const defaultModalState = {
   help: false,
@@ -32,7 +32,7 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
     if (wordle.isWon !== null && !isPlaying) {
       timer = setTimeout(() => {
         toggleModal("statistics");
-      }, 850);
+      }, 1500);
       endGame();
     }
 
@@ -49,7 +49,7 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
       <Header toggleModal={toggleModal} />
       <Alerts alerts={alerts} />
       <div className="flex-center">
-        <Gameboard gameboard={wordle.gameboard} />
+        <Gameboard gameboard={wordle.gameboard} alerts={alerts} />
       </div>
       <Keyboard />
       <CSSTransition

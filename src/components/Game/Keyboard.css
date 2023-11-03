@@ -1,0 +1,23 @@
+.Keyboard-inner {
+  margin: 3vh 0 0;
+}
+
+.Keyboard-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}
+
+.Keyboard-row {
+  width: 100%;
+  display: flex;
+}
+
+.row-0, .row-2 {
+  justify-content: space-around;
+}
+
+.row-1 {
+  justify-content: space-evenly;
+}

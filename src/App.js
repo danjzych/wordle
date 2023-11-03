@@ -14,7 +14,7 @@ function App() {
   }
 
   return (
-    <playingContext.Provider value={{ isPlaying }}>
+    <playingContext.Provider value={{ isPlaying, gameboard: wordle.gameboard }}>
       <WordleApp
         wordle={wordle}
         record={record}

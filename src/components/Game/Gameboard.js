@@ -3,12 +3,12 @@ import Row from "./Row";
 
 import "./Gameboard.css";
 
-function Gameboard({ gameboard }) {
+function Gameboard({ gameboard, alerts }) {
   return (
     <table className="Gameboard">
       <tbody>
         {gameboard.map((row, idx) => (
-          <Row row={row} key={idx} />
+          <Row row={row} key={idx} alerts={alerts} />
         ))}
       </tbody>
     </table>

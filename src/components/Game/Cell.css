@@ -1,27 +1,12 @@
 .Cell {
-  height: 10vh;
-  width: 10vh;
+  box-sizing: border-box;
+  height: 8vh;
+  width: 8vh;
   border-radius: 2px;
   border: 2px solid #d4d4db;
   transition: background-color .5s;
   text-align: center;
-  font-size: 7vh;
-}
-
-.correct, .incorrect, .partial {
-  color: white;
-}
-
-.correct {
-  background-color: #6cac64;
-}
-
-.partial {
-  background-color: #ccb45c;
-}
-
-.incorrect {
-  background-color: #7c7c7c;
+  font-size: 6vh;
 }
 
 .pending {

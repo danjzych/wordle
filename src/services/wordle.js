@@ -8,8 +8,8 @@ const { playableWords } = require("./allPossible");
  */
 class Wordle {
   constructor() {
-    // this.word = randomWord().toUpperCase();
-    this.word = "ORGAN";
+    this.word = randomWord().toUpperCase();
+    // this.word = "ORGAN";
     this.guessCount = 0;
     this.isWon = null;
     this.gameboard = [
@@ -69,7 +69,6 @@ class Wordle {
    * @param {string} guess
    */
   scoreWord(guess) {
-    console.debug("scoreWord");
     const letters = guess.split("");
     const frequencies = this.getFrequencyCounter(this.word);
     const currentRow = this.gameboard[this.guessCount];

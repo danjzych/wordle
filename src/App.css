@@ -24,3 +24,19 @@
     right: 0;
   }
 }
+
+.correct, .incorrect, .partial {
+  color: white;
+}
+
+.correct {
+  background-color: #6cac64;
+}
+
+.partial {
+  background-color: #ccb45c;
+}
+
+.incorrect {
+  background-color: #7c7c7c;
+}

@@ -1,0 +1,24 @@
+.Key {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 3px;
+  border: 1px solid #d4d4db;
+  text-align: center;
+  margin: 5px;
+  padding: 4px 4px;
+}
+
+.Key-default-color {
+  background-color: #f0f0f6;
+}
+
+.Key:hover {
+  box-shadow: 0px 1px 5px black;
+  border: 1px solid transparent;
+}
+
+.Key:active {
+  box-shadow: inset 0px 1px 3px black;
+}

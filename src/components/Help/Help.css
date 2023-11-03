@@ -1,6 +1,7 @@
 .Help {
   z-index: 100;
   width: 100vw;
+  height: calc(100vh - 20px);
   backdrop-filter: blur(1px);
   padding: 25px 0;
   top: 20px;
@@ -38,6 +39,7 @@
 }
 
 .Help-inner {
+  height: inherit;
   display: flex;
   flex-direction: column;
   gap: 25px;
