@@ -14,7 +14,13 @@ function App() {
   }
 
   return (
-    <playingContext.Provider value={{ isPlaying, gameboard: wordle.gameboard }}>
+    <playingContext.Provider
+      value={{
+        isPlaying,
+        currentGuess: wordle.guessCount,
+        gameboard: wordle.gameboard,
+      }}
+    >
       <WordleApp
         wordle={wordle}
         record={record}

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import playingContext from "../../contexts/playingContext";
 import Cell from "./Cell";
 
 import "./Row.css";
 
-function Row({ row, alerts }) {
+function Row({ row, rowIdx, alerts }) {
+  const { currentGuess } = useContext(playingContext);
+
   return (
     <tr
-    // className={
-    //   alerts.length > 0 && alerts[0].message !== "Great!" && "Row-incorrect"
-    // }
+      className={
+        alerts.length > 0 &&
+        alerts[0].message !== "Great!" &&
+        rowIdx === currentGuess &&
+        "Row-incorrect"
+      }
     >
       {row.map((letter, idx) => (
         <Cell letter={letter} key={idx} />

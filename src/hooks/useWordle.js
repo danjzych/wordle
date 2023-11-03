@@ -61,6 +61,20 @@ function useWordle() {
     }
   }, [wordle.isWon]);
 
+  /** Clear alerts every 1.5 seconds */
+  useEffect(() => {
+    let timer;
+    if (alerts.message !== "Great!") {
+      setTimeout(() => {
+        setAlerts([]);
+      }, 1500);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [alerts]);
+
   /** Adds new record to local storage for stats and gives alert for win or lose */
   function handleGameEnd() {
     const newRecord = [

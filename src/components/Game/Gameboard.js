@@ -8,7 +8,7 @@ function Gameboard({ gameboard, alerts }) {
     <table className="Gameboard">
       <tbody>
         {gameboard.map((row, idx) => (
-          <Row row={row} key={idx} alerts={alerts} />
+          <Row row={row} rowIdx={idx} key={idx} alerts={alerts} />
         ))}
       </tbody>
     </table>
