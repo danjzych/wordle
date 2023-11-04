@@ -9,7 +9,7 @@ const { playableWords } = require("./allPossible");
 class Wordle {
   constructor() {
     // this.word = randomWord().toUpperCase();
-    this.word = "ORGAN";
+    this.word = "SHALL";
     this.guessCount = 0;
     this.isWon = null;
     this.gameboard = [
@@ -85,7 +85,7 @@ class Wordle {
     }
 
     for (let i = 0; i < 5; i++) {
-      if (frequencies[letters[i]]) {
+      if (frequencies[letters[i]] && currentRow[i].status !== "correct") {
         currentRow[i] = {
           letter: letters[i],
           status: "partial",
