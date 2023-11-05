@@ -1,12 +1,17 @@
 .Key {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   height: 26px;
   min-width: 26px;
+  /* height: 7vw;
+  max-height: 40px; */
+  /* min-width: 7vw; */
+  /* max-width: 40px; */
   border-radius: 3px;
   border: 1px solid #d4d4db;
   text-align: center;
-  margin: 5px;
   padding: 4px 4px;
   cursor: pointer;
 }

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import StatisticsCard from "./StatisticsCard";
 import GuessDistributionChart from "./BarChart";
 import "./Statistics.css";
@@ -6,6 +5,8 @@ import "./Statistics.css";
 function Statistics({
   gamesPlayed,
   winPercentage,
+  currentStreak,
+  maxStreak,
   guessDistribution,
   toggleModal,
 }) {
@@ -21,8 +22,8 @@ function Statistics({
           <div className="Statistics-card-container">
             <StatisticsCard name={"Played"} value={gamesPlayed} />
             <StatisticsCard name={"Win %"} value={winPercentage} />
-            <StatisticsCard name={"Current Streak"} value={gamesPlayed} />
-            <StatisticsCard name={"Max Streak"} value={gamesPlayed} />
+            <StatisticsCard name={"Current Streak"} value={currentStreak} />
+            <StatisticsCard name={"Max Streak"} value={maxStreak} />
           </div>
         </div>
         <div className="Statistics-item">

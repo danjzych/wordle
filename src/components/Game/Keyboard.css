@@ -1,4 +1,4 @@
-.Keyboard-inner {
+.Keyboard {
   margin: 3vh 0 0;
 }
 
@@ -12,6 +12,7 @@
 .Keyboard-row {
   width: 100%;
   display: flex;
+  gap: 2vw;
 }
 
 .row-0, .row-2 {
