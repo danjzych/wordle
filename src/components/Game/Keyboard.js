@@ -9,14 +9,14 @@ const keyboard = [
   ["ENTER :(", "Z", "X", "C", "V", "B", "N", "M", "BACKSPACE"],
 ];
 
-function Keyboard() {
+function Keyboard({ wordle }) {
   return (
     <div className="Keyboard flex-center">
       <div className="Keyboard-inner">
         {keyboard.map((row, i) => (
           <div className={`Keyboard-row row-${i}`} key={i}>
             {row.map((key, i) => (
-              <Key gameKey={key} key={i} />
+              <Key gameKey={key} key={i} wordle={wordle} />
             ))}
           </div>
         ))}

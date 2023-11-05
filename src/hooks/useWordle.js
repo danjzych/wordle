@@ -46,6 +46,7 @@ function useWordle() {
   const [wordle, setWordle] = useState(new Wordle());
   const [record, setRecord] = useState([]);
   const [alerts, setAlerts] = useState([]);
+  const [keyColors, setKeyColors] = useState({});
 
   /** Get Record from local storage on page load */
   useEffect(() => {
@@ -61,6 +62,11 @@ function useWordle() {
     }
   }, [wordle.isWon]);
 
+  /** Update key colors after guess has been submitted */
+  useEffect(() => {
+    setKeyColors(getKeyColors());
+  }, [wordle.guessCount]);
+
   /** Clear alerts every 1.5 seconds */
   // useEffect(() => {
   //   let timer;
@@ -74,25 +80,6 @@ function useWordle() {
   //     clearTimeout(timer);
   //   };
   // }, [alerts]);
-
-  /** Adds new record to local storage for stats and gives alert for win or lose */
-  function handleGameEnd() {
-    const newRecord = [
-      ...record,
-      { won: wordle.isWon, guesses: wordle.guessCount },
-    ];
-
-    setRecord(newRecord);
-    localStorage.setItem("wordleRecord", JSON.stringify(newRecord));
-
-    if (wordle.isWon) {
-      addAlert("Great!");
-    }
-
-    if (wordle.isWon === false) {
-      addAlert(wordle.word);
-    }
-  }
 
   /** Function to add letters for keyboard event listener */
   function handleKeydown(evt) {
@@ -154,6 +141,46 @@ function useWordle() {
   }
 
   /**
+   * Determines color for each key in keyboard using most recent status in game
+   * @returns object
+   */
+  function getKeyColors() {
+    const newKeyColors = {};
+
+    // Flatten gameboard and reverse it to start with most recent guesses
+    const lettersByRecency = wordle.gameboard.flat().reverse();
+
+    for (const l of VALID_KEYS) {
+      const lastStatus = lettersByRecency.find(
+        (c) => c.letter === l && c.letter !== "pending"
+      )?.status;
+
+      newKeyColors[l] = lastStatus ? lastStatus : "unguessed";
+    }
+
+    return newKeyColors;
+  }
+
+  /** Adds new record to local storage for stats and gives alert for win or lose */
+  function handleGameEnd() {
+    const newRecord = [
+      ...record,
+      { won: wordle.isWon, guesses: wordle.guessCount },
+    ];
+
+    setRecord(newRecord);
+    localStorage.setItem("wordleRecord", JSON.stringify(newRecord));
+
+    if (wordle.isWon) {
+      addAlert("Great!");
+    }
+
+    if (wordle.isWon === false) {
+      addAlert(wordle.word);
+    }
+  }
+
+  /**
    * Adds alert to alert state for render.
    * @param {string} message
    */
@@ -165,6 +192,7 @@ function useWordle() {
     wordle,
     record,
     alerts,
+    keyColors,
     handleKeydown,
     handleGuess,
     addAlert,
