@@ -2,18 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  height: 26px;
-  min-width: 26px;
-  /* height: 7vw;
-  max-height: 40px; */
-  /* min-width: 7vw; */
-  /* max-width: 40px; */
+  flex-shrink: 0;
+  min-width: 3vw;
+  max-width: 5vw;
+  aspect-ratio: 1/1;
   border-radius: 3px;
   border: 1px solid #d4d4db;
   text-align: center;
   padding: 4px 4px;
   cursor: pointer;
+}
+
+.Key-enter {
+  aspect-ratio: auto;
+  min-width: 50px;
 }
 
 .Key-default-color {

@@ -81,8 +81,7 @@ function Help({ toggleModal }) {
           <a href="http://www.danielzych.com" target="_blank">
             personal website
           </a>{" "}
-          check out my personal website if you haven't already. You can also
-          check out the GitHub repo{" "}
+          if you haven't already. You can also check out the GitHub repo{" "}
           <a href="https://github.com/danjzych/wordle" target="_blank">
             here
           </a>
