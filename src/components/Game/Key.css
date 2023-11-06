@@ -1,11 +1,11 @@
 .Key {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  min-width: 3vw;
-  max-width: 5vw;
-  aspect-ratio: 1/1;
+  height: 100%;
+  aspect-ratio: 2/3;
   border-radius: 3px;
   border: 1px solid #d4d4db;
   text-align: center;
@@ -15,7 +15,7 @@
 
 .Key-enter {
   aspect-ratio: auto;
-  min-width: 50px;
+  flex-grow: 2;
 }
 
 .Key-default-color {
@@ -29,4 +29,26 @@
 
 .Key:active {
   box-shadow: inset 0px 1px 3px black;
+}
+
+@media  (max-width: 550px) {
+  .Key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    height: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 3px;
+    border: 1px solid #d4d4db;
+    text-align: center;
+    padding: 4px 4px;
+    cursor: pointer;
+  }
+  .Key-enter {
+    aspect-ratio: auto;
+    flex-grow: 2;
+    min-width: 50px;
+    max-width: 70px;
+  }
 }

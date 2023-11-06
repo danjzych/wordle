@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.main-game {
+  flex-direction: column;
+  height: calc(100vh - 7vh - 50px);
+}
+
 @keyframes wiggle {
   0% {
     right: 0;
