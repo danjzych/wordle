@@ -40,7 +40,6 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
-  /* Why does padding go away when resizing screen from ultra big to small? */
   padding: 30px 100px;
 }
 

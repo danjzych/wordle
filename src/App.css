@@ -35,13 +35,13 @@
 }
 
 .correct {
-  background-color: #6cac64;
+  background-color: var(--correct-green);
 }
 
 .partial {
-  background-color: #ccb45c;
+  background-color: var(--partial-yellow);
 }
 
 .incorrect {
-  background-color: #7c7c7c;
+  background-color: var(--gray-5);
 }

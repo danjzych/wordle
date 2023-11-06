@@ -3,14 +3,14 @@
   height: 8vh;
   width: 8vh;
   border-radius: 2px;
-  border: 2px solid #d4d4db;
+  border: 2px solid var(--gray-2);
   transition: background-color .5s;
   text-align: center;
   font-size: 6vh;
 }
 
 .pending {
-  background-color: #d4d4db;
+  background-color: var(--gray-2);
   animation: inputGrow .25s ease-in-out;
 }
 
@@ -41,7 +41,7 @@ td:nth-child(5):not(.empty):not(.pending) {
 @keyframes inputGrow {
   50% {
     transform: scale(1.05);
-    box-shadow: 0px 2px 5px #9c9c9d;
+    box-shadow: 0px 2px 5px var(--gray-shadow);
   };
   100% {
     transform: scale(1);
@@ -51,7 +51,7 @@ td:nth-child(5):not(.empty):not(.pending) {
 @keyframes score {
   50% {
     transform: scale(1.10);
-    box-shadow: 2px 3px 10px #9c9c9d;
+    box-shadow: 2px 3px 10px var(--gray-shadow);
   };
   100% {
     transform: scale(1);

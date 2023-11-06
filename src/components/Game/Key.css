@@ -7,7 +7,7 @@
   height: 100%;
   aspect-ratio: 2/3;
   border-radius: 3px;
-  border: 1px solid #d4d4db;
+  border: 1px solid var(--gray-2);
   text-align: center;
   padding: 4px 4px;
   cursor: pointer;
@@ -19,7 +19,7 @@
 }
 
 .Key-default-color {
-  background-color: #f0f0f6;
+  background-color: var(--gray-1);
 }
 
 .Key:hover {
@@ -33,21 +33,23 @@
 
 @media  (max-width: 550px) {
   .Key {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 1;
+    flex-shrink: 0;
     height: 100%;
     aspect-ratio: 2/3;
     border-radius: 3px;
-    border: 1px solid #d4d4db;
+    border: 1px solid var(--gray-2);
     text-align: center;
     padding: 4px 4px;
     cursor: pointer;
   }
+  .Key {
+    flex-shrink: 1;
+  }
   .Key-enter {
-    aspect-ratio: auto;
-    flex-grow: 2;
     min-width: 50px;
     max-width: 70px;
   }

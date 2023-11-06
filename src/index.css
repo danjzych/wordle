@@ -4,6 +4,16 @@
   overflow: hidden;
 }
 
+:root {
+  --correct-green: #6cac64;
+  --partial-yellow: #ccb45c;
+  --gray-1: #f0f0f6;
+  --gray-2: #d4d4db;
+  --gray-4: rgb(66, 96, 96);
+  --gray-5: #7c7c7c;
+  --gray-shadow: #9c9c9d;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
