@@ -33,17 +33,10 @@
 
 @media (max-width: 420px)  {
   .Keyboard {
-    margin: 3vh 2vw;
-    height: 40%;
     width: 100%;
   }
   .Keyboard-row {
-    box-sizing: border-box;
-    width: 100%;
-    height: 30%;
-    display: flex;
     gap: 3px;
-    overflow: hidden;
     padding: 1px 5px;
   }
   .row-1 {
