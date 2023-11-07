@@ -13,7 +13,9 @@ function StatisticsCalculator({ record, toggleModal }) {
     const distribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
 
     for (let i = 0; i < arr.length; i++) {
-      distribution[arr[i]]++;
+      if (arr[i].won) {
+        distribution[arr[i].guesses]++;
+      }
     }
 
     return distribution;
@@ -70,7 +72,7 @@ function StatisticsCalculator({ record, toggleModal }) {
     ) || 0;
   const currentStreak = getStreak(record.map((r) => r.won).reverse());
   const maxStreak = getMaxStreak(record.map((r) => r.won).reverse());
-  const guessDistribution = getGuessDistribution(record.map((r) => r.guesses));
+  const guessDistribution = getGuessDistribution(record);
 
   return (
     <Statistics
