@@ -7,11 +7,11 @@ const { playableWords } = require("./allPossible");
  * Class containing the logic for a game of wordle.
  */
 class Wordle {
-  constructor() {
-    this.word = randomWord().toUpperCase();
-    this.guessCount = 0;
-    this.isWon = null;
-    this.gameboard = [
+  constructor(prev = null) {
+    this.word = prev?.word || randomWord().toUpperCase();
+    this.guessCount = prev?.guessCount || 0;
+    this.isWon = prev?.isWon || null;
+    this.gameboard = prev?.gameboard || [
       [{}, {}, {}, {}, {}],
       [{}, {}, {}, {}, {}],
       [{}, {}, {}, {}, {}],
