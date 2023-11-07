@@ -5,7 +5,7 @@ import Statistics from "./Statistics";
 
 function StatisticsCalculator({ record, toggleModal }) {
   /**
-   * Takes array of scores and returns distribution of scores as object.
+   * Takes array of scores and returns distribution of scores of won games.
    * @param {array} arr
    * @returns object
    */
