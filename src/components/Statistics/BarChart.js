@@ -39,7 +39,7 @@ const backgroundColor = [
 function GuessDistributionChart({ guessDistribution }) {
   const { isPlaying, currentGuess } = useContext(playingContext);
 
-  if (!isPlaying) backgroundColor[currentGuess] = "#6cac64";
+  if (!isPlaying) backgroundColor[currentGuess - 1] = "#6cac64";
   const chartData = {
     labels: Object.keys(guessDistribution),
     datasets: [
