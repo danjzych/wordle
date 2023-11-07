@@ -28,7 +28,7 @@ function WordleApp({ wordle, alerts, record, handleKeydown, endGame }) {
   /** When game is won or lost, cease play state and navigate to stats page */
   useEffect(() => {
     let timer;
-    if (wordle.isWon !== null && !isPlaying) {
+    if (wordle.isWon !== null && isPlaying) {
       timer = setTimeout(() => {
         toggleModal("statistics");
       }, 1500);

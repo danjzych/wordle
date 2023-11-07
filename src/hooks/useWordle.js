@@ -121,7 +121,6 @@ function useWordle() {
     }
 
     const newWordle = new Wordle(wordle);
-    console.log(newWordle);
     newWordle.gameboard[wordle.guessCount][guessIndex] = {
       letter: letter,
       status: "pending",

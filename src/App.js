@@ -14,10 +14,10 @@ function App() {
     handleKeydown,
     addLetterGuessToBoard,
   } = useWordle();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   function endGame() {
-    setIsPlaying(true);
+    setIsPlaying(false);
   }
 
   return (
