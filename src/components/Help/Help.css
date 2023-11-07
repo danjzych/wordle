@@ -4,7 +4,7 @@
   height: calc(100vh - 45px);
   backdrop-filter: blur(1px);
   padding: 25px 0;
-  top: 20px;
+  /* top: 20px; */
 }
 
 .Help-enter {
@@ -93,7 +93,18 @@
     box-sizing: border-box;
     width: 100vw;
     gap: 15px;
-    padding: 30px 5vw;
+    padding: 20px 5vw;
+  }
+  .Help-enter-active {
+    top: 10px;
+  }
+
+  .Help-enter-done {
+    top: 10px;
+  }
+
+  .Help-exit {
+    top: 10px;
   }
 }
 

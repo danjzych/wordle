@@ -3,3 +3,9 @@
   border-spacing: 5px;
   height: 60%;
 }
+
+@media (max-width: 420px)  {
+  .Gameboard {
+    height: 50%;
+  }
+}

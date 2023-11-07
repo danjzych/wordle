@@ -30,3 +30,14 @@
 .Header-Logo {
   text-shadow: 1px 1px 3px  var(--gray-4);
 }
+
+@media (max-width: 550px) {
+  .Header {
+    min-height: 25px;
+    height: 5vh;
+    padding: 1px 5px;
+  }
+  .Header .bi {
+    font-size: 24px;
+  }
+}
