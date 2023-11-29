@@ -2,7 +2,7 @@
 
 This Wordle clone was built using React, React Transition Group, and react-chartjs-2. I built this project as a way to practice React application, and because I love Wordle.
 
-This Wordle app is live [here] (http://wordle.danielzych.com/).
+This Wordle app is live [here](http://wordle.danielzych.com/).
 
 ## Running The App
 
